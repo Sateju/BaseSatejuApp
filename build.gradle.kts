@@ -7,6 +7,7 @@ buildscript {
         classpath(BuildPlugins.androidGradlePlugin)
         classpath(BuildPlugins.kotlinGradlePlugin)
         classpath(BuildPlugins.hiltGradlePlugin)
+        classpath(BuildPlugins.navPlugin)
     }
 }
 
