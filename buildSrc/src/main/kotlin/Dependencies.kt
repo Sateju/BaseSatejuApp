@@ -31,6 +31,9 @@ object AndroidSdk {
 // Libraries
 object Libraries {
     private object Versions {
+        // Kotlin
+        const val coroutines = "1.3.9"
+
         // Android X
         const val appCompat = "1.2.0"
         const val recycler = "1.1.0"
@@ -50,6 +53,7 @@ object Libraries {
 
     }
 
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
