@@ -1,2 +1,2 @@
 rootProject.name = "BaseSatejuApp"
-include ':app'
+include(":app")

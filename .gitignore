@@ -11,6 +11,7 @@ gradlew
 /.idea/assetWizardSettings.xml
 /.idea/runConfigurations.xml
 /.idea/.gitignore
+/.idea/codeStyles/
 .DS_Store
 /build
 /captures
