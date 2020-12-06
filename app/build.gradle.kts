@@ -1,6 +1,8 @@
 plugins {
     id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
+    id(Plugins.kapt)
+    id(Plugins.hilt)
 }
 
 android {
@@ -32,6 +34,10 @@ android {
     kotlinOptions {
         jvmTarget = AndroidSdk.jvmTarget
     }
+
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
@@ -39,6 +45,14 @@ dependencies {
     implementation(Libraries.ktxCore)
     implementation(Libraries.appCompat)
     implementation(Libraries.material)
+    implementation(Libraries.navigation)
+    implementation(Libraries.navigationUi)
+
+    implementation(Libraries.room)
+    kapt(Libraries.kaptRoom)
+
+    implementation(Libraries.hilt)
+    kapt(Libraries.kaptHilt)
 
     // Testing
     testImplementation(TestLibraries.junit4)
