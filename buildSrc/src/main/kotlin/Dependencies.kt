@@ -44,6 +44,10 @@ object Libraries {
 
         // Material
         const val material = "1.2.1"
+
+        // Retrofit
+        const val retrofit = "2.9.0"
+
     }
 
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
@@ -64,6 +68,9 @@ object Libraries {
     const val kaptHilt = "com.google.dagger:hilt-android-compiler:$hiltVersion"
     const val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltViewModel}"
     const val kaptHiltViewModel = "androidx.hilt:hilt-compiler:${Versions.hiltViewModel}"
+
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
 }
 
 

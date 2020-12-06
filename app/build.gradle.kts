@@ -68,6 +68,10 @@ dependencies {
     kapt(Libraries.kaptHilt)
     kapt(Libraries.kaptHiltViewModel)
 
+    // Retrofit
+    implementation(Libraries.retrofit)
+    implementation(Libraries.retrofitConverter)
+
     // Testing
     testImplementation(TestLibraries.junit4)
     androidTestImplementation(TestLibraries.testRunner)
