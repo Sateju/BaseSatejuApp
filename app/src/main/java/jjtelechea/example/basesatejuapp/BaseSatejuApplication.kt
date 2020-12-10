@@ -1,6 +1,7 @@
 package jjtelechea.example.basesatejuapp
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-class BaseSatejuApplication : Application() {
-}
+@HiltAndroidApp
+class BaseSatejuApplication : Application()

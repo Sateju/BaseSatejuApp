@@ -63,6 +63,7 @@ object Libraries {
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:$navVersion"
     const val room = "androidx.room:room-runtime:${Versions.room}"
     const val kaptRoom = "androidx.room:room-compiler:${Versions.room}"
+    const val roomExtensions = "androidx.room:room-ktx:${Versions.room}"
     const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
     const val kaptLifeCycle = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
