@@ -73,6 +73,8 @@ dependencies {
     // Retrofit
     implementation(Libraries.retrofit)
     implementation(Libraries.retrofitConverter)
+    implementation(Libraries.okhttp)
+    implementation(Libraries.okhttpInterceptor)
 
     // Testing
     testImplementation(TestLibraries.junit4)

@@ -51,6 +51,9 @@ object Libraries {
         // Retrofit
         const val retrofit = "2.9.0"
 
+        // Okhttp
+        const val okhttp = "4.9.0"
+
     }
 
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
@@ -76,6 +79,8 @@ object Libraries {
 
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
+    const val okhttpInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
 }
 
 
