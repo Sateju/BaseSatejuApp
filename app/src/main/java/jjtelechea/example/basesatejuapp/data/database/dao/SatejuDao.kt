@@ -12,7 +12,7 @@ interface SatejuDao {
     }
 
     @Query("SELECT * FROM $TABLE_NAME")
-    fun getAllSatejus(): Flow<SatejuEntity>
+    fun getAllSatejus(): Flow<List<SatejuEntity>>
 
     @Query("SELECT * FROM $TABLE_NAME WHERE id = :id")
     suspend fun getSatejuWithId(id: Int): SatejuEntity
