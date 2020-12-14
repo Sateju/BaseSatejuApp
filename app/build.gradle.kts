@@ -48,11 +48,9 @@ dependencies {
     implementation(Libraries.appCompat)
     implementation(Libraries.recycler)
     implementation(Libraries.material)
+    implementation(Libraries.constraintLayout)
     implementation(Libraries.navigation)
     implementation(Libraries.navigationUi)
-
-    // DataBinding
-    kapt(Libraries.kaptDataBinding)
 
     // Lifecycle
     implementation(Libraries.viewModel)
