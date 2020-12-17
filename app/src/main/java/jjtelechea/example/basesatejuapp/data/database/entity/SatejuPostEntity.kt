@@ -8,5 +8,8 @@ import androidx.room.PrimaryKey
 data class SatejuPostEntity(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    val id: Int
+    val id: Int,
+
+    val title: String,
+    val body: String
 )
