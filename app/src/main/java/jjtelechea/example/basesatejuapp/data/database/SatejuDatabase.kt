@@ -5,9 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import jjtelechea.example.basesatejuapp.data.database.dao.SatejuDao
-import jjtelechea.example.basesatejuapp.data.database.entity.SatejuEntity
+import jjtelechea.example.basesatejuapp.data.database.entity.SatejuPostEntity
 
-@Database(entities = [SatejuEntity::class], version = 1, exportSchema = false)
+@Database(entities = [SatejuPostEntity::class], version = 1, exportSchema = false)
 abstract class SatejuDatabase : RoomDatabase() {
 
     abstract fun getSatejuDao(): SatejuDao

@@ -1,7 +1,7 @@
 package jjtelechea.example.basesatejuapp.data.database.dao
 
 import androidx.room.*
-import jjtelechea.example.basesatejuapp.data.database.entity.SatejuEntity
+import jjtelechea.example.basesatejuapp.data.database.entity.SatejuPostEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -12,19 +12,19 @@ interface SatejuDao {
     }
 
     @Query("SELECT * FROM $TABLE_NAME")
-    fun getAllSatejus(): Flow<List<SatejuEntity>>
+    fun getAllSatejuPosts(): Flow<List<SatejuPostEntity>>
 
     @Query("SELECT * FROM $TABLE_NAME WHERE id = :id")
-    suspend fun getSatejuWithId(id: Int): SatejuEntity
+    suspend fun getSatejuPostWithId(id: Int): SatejuPostEntity
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertSatejus(vararg sateju: SatejuEntity)
+    suspend fun insertSatejuPosts(vararg satejuPosts: SatejuPostEntity)
 
     @Update
-    suspend fun updateSatejus(vararg satejuEntity: SatejuEntity)
+    suspend fun updateSatejuPosts(vararg satejuPosts: SatejuPostEntity)
 
     @Delete
-    suspend fun deleteSatejus(vararg sateju: SatejuEntity)
+    suspend fun deleteSatejuPosts(vararg satejuPosts: SatejuPostEntity)
 
     @Query("DELETE FROM $TABLE_NAME")
     suspend fun deleteAll()

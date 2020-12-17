@@ -1,6 +1,6 @@
 package jjtelechea.example.basesatejuapp.data.api.response
 
-data class SatejuComment(
+data class SatejuCommentDTO(
     val postId: Int,
     val id: Int,
     val name: String,
