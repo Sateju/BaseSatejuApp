@@ -8,8 +8,8 @@ import retrofit2.http.Query
 interface SatejuService {
 
     @GET("posts")
-    fun getPosts() : List<SatejuPostDTO>
+    suspend fun getPosts() : List<SatejuPostDTO>
 
     @GET("comments")
-    fun getComments(@Query("postId") id: Int): List<SatejuCommentDTO>
+    suspend fun getComments(@Query("postId") id: Int): List<SatejuCommentDTO>
 }
