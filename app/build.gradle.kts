@@ -4,6 +4,7 @@ plugins {
     id(Plugins.kapt)
     id(Plugins.hilt)
     id(Plugins.navigationSafeargs)
+    kotlin(Plugins.serialization) version kotlinVersion
 }
 
 android {
@@ -71,9 +72,12 @@ dependencies {
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
-    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
     implementation("com.squareup.okhttp3:okhttp:$okhttpVersion")
     implementation("com.squareup.okhttp3:logging-interceptor:$okhttpVersion")
+
+    // Serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
 
     // Testing
     testImplementation("junit:junit:4.13.1")

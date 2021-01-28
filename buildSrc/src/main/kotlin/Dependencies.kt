@@ -12,4 +12,5 @@ object Plugins {
     const val kapt = "kotlin-kapt"
     const val hilt = "dagger.hilt.android.plugin"
     const val navigationSafeargs = "androidx.navigation.safeargs.kotlin"
+    const val serialization = "plugin.serialization"
 }
