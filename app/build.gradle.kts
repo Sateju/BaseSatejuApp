@@ -7,12 +7,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion(AndroidSdk.compile)
+    compileSdkVersion(30)
 
     defaultConfig {
         applicationId = "jjtelechea.example.basesatejuapp"
-        minSdkVersion(AndroidSdk.min)
-        targetSdkVersion(AndroidSdk.target)
+        minSdkVersion(21)
+        targetSdkVersion(30)
         versionCode = 1
         versionName = "1.0"
 
@@ -33,7 +33,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = AndroidSdk.jvmTarget
+        jvmTarget = "11"
     }
 
     buildFeatures {
@@ -42,40 +42,41 @@ android {
 }
 
 dependencies {
-    implementation(Libraries.kotlinStdLib)
-    implementation(Libraries.coroutines)
-    implementation(Libraries.ktxCore)
-    implementation(Libraries.appCompat)
-    implementation(Libraries.recycler)
-    implementation(Libraries.material)
-    implementation(Libraries.constraintLayout)
-    implementation(Libraries.navigation)
-    implementation(Libraries.navigationUi)
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1")
+    implementation("androidx.core:core-ktx:1.3.2")
+    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("androidx.recyclerview:recyclerview:1.1.0")
+    implementation("com.google.android.material:material:1.2.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
+    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
     // Lifecycle
-    implementation(Libraries.viewModel)
-    implementation(Libraries.liveData)
-    kapt(Libraries.kaptLifeCycle)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
+    kapt("androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion")
+
 
     // Room
-    implementation(Libraries.room)
-    kapt(Libraries.kaptRoom)
-    implementation(Libraries.roomExtensions)
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
 
     // Hilt
-    implementation(Libraries.hilt)
-    implementation(Libraries.hiltViewModel)
-    kapt(Libraries.kaptHilt)
-    kapt(Libraries.kaptHiltViewModel)
+    implementation("com.google.dagger:hilt-android:$hiltVersion")
+    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+    kapt("androidx.hilt:hilt-compiler:1.0.0-alpha03")
 
     // Retrofit
-    implementation(Libraries.retrofit)
-    implementation(Libraries.retrofitConverter)
-    implementation(Libraries.okhttp)
-    implementation(Libraries.okhttpInterceptor)
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    implementation("com.squareup.okhttp3:okhttp:$okhttpVersion")
+    implementation("com.squareup.okhttp3:logging-interceptor:$okhttpVersion")
 
     // Testing
-    testImplementation(TestLibraries.junit4)
-    androidTestImplementation(TestLibraries.testRunner)
-    androidTestImplementation(TestLibraries.espresso)
+    testImplementation("junit:junit:4.13.1")
+    androidTestImplementation("androidx.test:runner:1.3.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
 }
