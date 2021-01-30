@@ -4,7 +4,7 @@ import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFact
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import dagger.hilt.android.components.ApplicationComponent
 import jjtelechea.example.basesatejuapp.data.api.SatejuService
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -14,7 +14,7 @@ import retrofit2.Retrofit
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
-@InstallIn(SingletonComponent::class)
+@InstallIn(ApplicationComponent::class)
 @Module
 object NetworkModule {
 

@@ -1,5 +1,5 @@
 const val kotlinVersion = "1.4.21"
-const val hiltVersion = "2.31-alpha"
+const val hiltVersion = "2.28-alpha"
 const val navVersion = "2.3.3"
 const val lifecycleVersion = "2.2.0"
 const val roomVersion = "2.2.6"
