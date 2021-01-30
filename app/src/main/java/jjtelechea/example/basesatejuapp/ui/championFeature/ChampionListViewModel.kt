@@ -1,4 +1,4 @@
-package jjtelechea.example.basesatejuapp.ui.satejuFeature
+package jjtelechea.example.basesatejuapp.ui.championFeature
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData

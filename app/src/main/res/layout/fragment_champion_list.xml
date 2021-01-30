@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="jjtelechea.example.basesatejuapp.ui.satejuFeature.ChampionListViewModel" />
+            type="jjtelechea.example.basesatejuapp.ui.championFeature.ChampionListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
