@@ -5,11 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import jjtelechea.example.basesatejuapp.data.database.entity.SatejuPostEntity
 import jjtelechea.example.basesatejuapp.databinding.ListItemSatejuPostBinding
+import jjtelechea.example.basesatejuapp.domain.model.ChampionEntity
 
-class SatejuPostAdapter :
-    ListAdapter<SatejuPostEntity, SatejuPostAdapter.ViewHolder>(SatejuPostDiffCallback()) {
+class ChampionAdapter : ListAdapter<ChampionEntity, ChampionAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
@@ -23,8 +22,8 @@ class SatejuPostAdapter :
     class ViewHolder private constructor(private val binding: ListItemSatejuPostBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: SatejuPostEntity) {
-            binding.satejuPost = item
+        fun bind(item: ChampionEntity) {
+            binding.entity = item
             binding.executePendingBindings()
         }
 
@@ -36,16 +35,18 @@ class SatejuPostAdapter :
             }
         }
     }
-}
 
-class SatejuPostDiffCallback : DiffUtil.ItemCallback<SatejuPostEntity>() {
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ChampionEntity>() {
+            override fun areItemsTheSame(
+                oldItem: ChampionEntity,
+                newItem: ChampionEntity
+            ): Boolean = oldItem.name == newItem.name
 
-    override fun areItemsTheSame(oldItem: SatejuPostEntity, newItem: SatejuPostEntity): Boolean {
-        return oldItem.id == newItem.id
+            override fun areContentsTheSame(
+                oldItem: ChampionEntity,
+                newItem: ChampionEntity
+            ): Boolean = oldItem == newItem
+        }
     }
-
-    override fun areContentsTheSame(oldItem: SatejuPostEntity, newItem: SatejuPostEntity): Boolean {
-        return oldItem == newItem
-    }
-
 }

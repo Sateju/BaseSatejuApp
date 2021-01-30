@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/satejuFragment"
-        android:name="jjtelechea.example.basesatejuapp.ui.satejuFeature.SatejuFragment"
+        android:name="jjtelechea.example.basesatejuapp.ui.satejuFeature.ChampionListFragment"
         android:label="SatejuFragment" />
 </navigation>

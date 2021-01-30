@@ -7,7 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import jjtelechea.example.basesatejuapp.data.database.SatejuDatabase
-import jjtelechea.example.basesatejuapp.data.database.dao.SatejuDao
+import jjtelechea.example.basesatejuapp.data.database.dao.ChampionDao
 import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)
@@ -21,7 +21,7 @@ object DatabaseModule {
     }
 
     @Provides
-    fun provideSatejuDao(satejuDatabase: SatejuDatabase): SatejuDao {
-        return satejuDatabase.getSatejuDao()
+    fun provideSatejuDao(satejuDatabase: SatejuDatabase): ChampionDao {
+        return satejuDatabase.championDao()
     }
 }

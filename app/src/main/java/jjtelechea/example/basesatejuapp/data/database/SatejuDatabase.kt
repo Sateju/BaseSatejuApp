@@ -4,13 +4,17 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import jjtelechea.example.basesatejuapp.data.database.dao.SatejuDao
-import jjtelechea.example.basesatejuapp.data.database.entity.SatejuPostEntity
+import jjtelechea.example.basesatejuapp.data.database.dao.ChampionDao
+import jjtelechea.example.basesatejuapp.data.database.entity.ChampionDBEntity
 
-@Database(entities = [SatejuPostEntity::class], version = 1, exportSchema = false)
+@Database(
+    entities = [ChampionDBEntity::class],
+    version = 1,
+    exportSchema = false
+)
 abstract class SatejuDatabase : RoomDatabase() {
 
-    abstract fun getSatejuDao(): SatejuDao
+    abstract fun championDao(): ChampionDao
 
     companion object {
 

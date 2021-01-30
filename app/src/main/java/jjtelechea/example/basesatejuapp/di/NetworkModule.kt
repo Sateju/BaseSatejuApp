@@ -5,7 +5,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import jjtelechea.example.basesatejuapp.data.api.SatejuService
+import jjtelechea.example.basesatejuapp.data.api.ChampionService
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -18,7 +19,7 @@ import javax.inject.Singleton
 @Module
 object NetworkModule {
 
-    private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
+    private const val BASE_URL = "http://ddragon.leagueoflegends.com/cdn/11.2.1/"
 
     /*
     Example of how to use Qualifiers to have different implementations of the same class
@@ -43,6 +44,7 @@ object NetworkModule {
         return HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
     }
 
+    @ExperimentalSerializationApi
     @Singleton
     @Provides
     fun provideRetrofit(@BasicOkHttpInterceptor interceptor: HttpLoggingInterceptor): Retrofit {
@@ -59,9 +61,8 @@ object NetworkModule {
             .build()
     }
 
-
     @Provides
-    fun provideSatejuService(retrofit: Retrofit): SatejuService {
-        return retrofit.create(SatejuService::class.java)
+    fun provideChampionService(retrofit: Retrofit): ChampionService {
+        return retrofit.create(ChampionService::class.java)
     }
 }

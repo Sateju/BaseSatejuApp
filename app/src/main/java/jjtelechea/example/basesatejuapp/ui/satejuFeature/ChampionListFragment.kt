@@ -4,19 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import jjtelechea.example.basesatejuapp.R
-import jjtelechea.example.basesatejuapp.databinding.FragmentSatejuBinding
+import jjtelechea.example.basesatejuapp.databinding.FragmentChampionListBinding
 
 @AndroidEntryPoint
-class SatejuFragment : Fragment() {
+class ChampionListFragment : Fragment() {
 
-    private lateinit var binding: FragmentSatejuBinding
+    private lateinit var binding: FragmentChampionListBinding
 
-    private val satejuViewModel: SatejuViewModel by viewModels()
+    private val viewModel: ChampionListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,7 +23,7 @@ class SatejuFragment : Fragment() {
     ): View {
 
         // Get a reference to the binding object and inflate the fragment views.
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sateju, container, false)
+        binding = FragmentChampionListBinding.inflate(inflater, container, false)
 
         // Specify the current activity as the lifecycle owner of the binding.
         // This is necessary so that the binding can observe LiveData updates.
@@ -33,12 +31,12 @@ class SatejuFragment : Fragment() {
 
         // To use the View Model with data binding, you have to explicitly
         // give the binding object a reference to it.
-        binding.satejuViewModel = satejuViewModel
+        binding.viewModel = viewModel
 
-        val adapter = SatejuPostAdapter()
-        binding.satejuPostList.adapter = adapter
+        val adapter = ChampionAdapter()
+        binding.championRecycler.adapter = adapter
 
-        satejuViewModel.data.observe(viewLifecycleOwner, {
+        viewModel.data.observe(viewLifecycleOwner, {
             it?.let {
                 adapter.submitList(it)
             }
