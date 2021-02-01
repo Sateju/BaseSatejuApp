@@ -1,5 +1,6 @@
 package jjtelechea.example.basesatejuapp.data.api.response
 
+import jjtelechea.example.basesatejuapp.data.api.serializer.ChampionListSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -8,6 +9,7 @@ data class ChampionResponseDTO(
     @SerialName("type") val type: String,
     @SerialName("format") val format: String,
     @SerialName("version") val version: String,
+    @Serializable(with = ChampionListSerializer::class)
     @SerialName("data") val data: List<ChampionDTO>,
 )
 
@@ -36,9 +38,9 @@ data class ChampionInfoDTO(
 
 @Serializable
 data class ChampionImageDTO(
-    @SerialName("full") val full: Int?,
-    @SerialName("sprite") val sprite: Int?,
-    @SerialName("group") val group: Int?,
+    @SerialName("full") val full: String?,
+    @SerialName("sprite") val sprite: String?,
+    @SerialName("group") val group: String?,
     @SerialName("x") val x: Int?,
     @SerialName("y") val y: Int?,
     @SerialName("w") val width: Int?,
@@ -47,14 +49,14 @@ data class ChampionImageDTO(
 
 @Serializable
 data class ChampionStatsDTO(
-    @SerialName("hp") val hitPoints: Int?,
-    @SerialName("hpperlevel") val hitPointsPerLevel: Int?,
-    @SerialName("mp") val manaPoints: Int?,
-    @SerialName("mpperlevel") val manaPointsPerLevel: Int?,
+    @SerialName("hp") val hitPoints: Float?,
+    @SerialName("hpperlevel") val hitPointsPerLevel: Float?,
+    @SerialName("mp") val manaPoints: Float?,
+    @SerialName("mpperlevel") val manaPointsPerLevel: Float?,
     @SerialName("movespeed") val movementSpeed: Int?,
     @SerialName("armor") val armor: Int?,
     @SerialName("armorperlevel") val armorPerLevel: Float?,
-    @SerialName("spellblock") val spellBlock: Int?,
+    @SerialName("spellblock") val spellBlock: Float?,
     @SerialName("spellblockperlevel") val spellBlockPerLevel: Float?,
     @SerialName("attackrange") val attackRange: Int?,
     @SerialName("hpregen") val hitPointsRegeneration: Float?,
