@@ -27,7 +27,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             bind:loadImage="@{entity.imageUrl}"
-            android:contentDescription="@string/image" />
+            android:contentDescription="@string/image"
+            tools:src="@tools:sample/avatars"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/champion_name"
@@ -41,7 +42,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/champion_image"
             app:layout_constraintTop_toTopOf="@id/champion_image"
-            tools:text="Aatrox" />
+            tools:text="@tools:sample/first_names" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/champion_title"
@@ -55,6 +56,6 @@
             app:layout_constraintEnd_toEndOf="@id/champion_name"
             app:layout_constraintStart_toStartOf="@id/champion_name"
             app:layout_constraintTop_toBottomOf="@id/champion_name"
-            tools:text="The Darkin Blade" />
+            tools:text="@tools:sample/last_names" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
