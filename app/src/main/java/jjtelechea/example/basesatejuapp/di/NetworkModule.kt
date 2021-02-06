@@ -11,6 +11,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Converter
 import retrofit2.Retrofit
 import javax.inject.Qualifier
 import javax.inject.Singleton
@@ -44,17 +45,28 @@ object NetworkModule {
         return HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
     }
 
+    @Singleton
+    @Provides
+    fun provideOkHttpClient(@BodyOkHttpInterceptor interceptor: HttpLoggingInterceptor): OkHttpClient {
+        return OkHttpClient.Builder()
+            .addInterceptor(interceptor)
+            .build()
+    }
+
     @ExperimentalSerializationApi
     @Singleton
     @Provides
-    fun provideRetrofit(@BodyOkHttpInterceptor interceptor: HttpLoggingInterceptor): Retrofit {
-        val okHttpClient = OkHttpClient.Builder()
-            .addInterceptor(interceptor)
-            .build()
-
+    fun provideJsonConverterFactory(): Converter.Factory {
         val contentType = "application/json".toMediaType()
+        return Json { ignoreUnknownKeys = true }.asConverterFactory(contentType)
+    }
 
-        val jsonConverterFactory = Json { ignoreUnknownKeys = true }.asConverterFactory(contentType)
+    @Singleton
+    @Provides
+    fun provideRetrofit(
+        okHttpClient: OkHttpClient,
+        jsonConverterFactory: Converter.Factory
+    ): Retrofit {
 
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
