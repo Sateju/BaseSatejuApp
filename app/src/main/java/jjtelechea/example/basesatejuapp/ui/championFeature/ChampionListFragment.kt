@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
 import jjtelechea.example.basesatejuapp.databinding.FragmentChampionListBinding
 
@@ -13,6 +14,7 @@ import jjtelechea.example.basesatejuapp.databinding.FragmentChampionListBinding
 class ChampionListFragment : Fragment() {
 
     private lateinit var binding: FragmentChampionListBinding
+    private lateinit var adapter: ChampionAdapter
 
     private val viewModel: ChampionListViewModel by viewModels()
 
@@ -33,8 +35,9 @@ class ChampionListFragment : Fragment() {
         // give the binding object a reference to it.
         binding.viewModel = viewModel
 
-        val adapter = ChampionAdapter()
+        adapter = ChampionAdapter()
         binding.championRecycler.adapter = adapter
+        binding.championRecycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
         viewModel.data.observe(viewLifecycleOwner, {
             it?.let {

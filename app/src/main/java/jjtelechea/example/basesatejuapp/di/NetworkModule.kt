@@ -20,7 +20,7 @@ import javax.inject.Singleton
 @Module
 object NetworkModule {
 
-    private const val BASE_URL = "https://ddragon.leagueoflegends.com/cdn/11.2.1/"
+    private const val BASE_URL = "https://ddragon.leagueoflegends.com/cdn/11.3.1/"
 
     /*
     Example of how to use Qualifiers to have different implementations of the same class

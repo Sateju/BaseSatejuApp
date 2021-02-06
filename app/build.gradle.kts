@@ -79,7 +79,7 @@ dependencies {
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
 
     // Coil
-    implementation("io.coil-kt:coil-base:1.1.1")
+    implementation("io.coil-kt:coil:1.1.1")
 
     // Testing
     testImplementation("junit:junit:4.13.1")
