@@ -21,7 +21,7 @@ object DatabaseModule {
     }
 
     @Provides
-    fun provideSatejuDao(satejuDatabase: SatejuDatabase): ChampionDao {
+    fun provideChampionDao(satejuDatabase: SatejuDatabase): ChampionDao {
         return satejuDatabase.championDao()
     }
 }

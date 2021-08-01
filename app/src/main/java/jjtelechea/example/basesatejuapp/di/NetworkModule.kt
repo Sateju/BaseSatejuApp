@@ -21,6 +21,8 @@ import javax.inject.Singleton
 object NetworkModule {
 
     private const val BASE_URL = "https://ddragon.leagueoflegends.com/cdn/11.3.1/"
+    private const val APPLICATION_JSON = "application/json"
+    private val json = Json { ignoreUnknownKeys = true }
 
     /*
     Example of how to use Qualifiers to have different implementations of the same class
@@ -57,8 +59,8 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideJsonConverterFactory(): Converter.Factory {
-        val contentType = "application/json".toMediaType()
-        return Json { ignoreUnknownKeys = true }.asConverterFactory(contentType)
+        val contentType = APPLICATION_JSON.toMediaType()
+        return json.asConverterFactory(contentType)
     }
 
     @Singleton
